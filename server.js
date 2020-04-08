@@ -12,6 +12,10 @@ server.get('/', (req, res) => {
   res.send(`<h2>Let's write some middleware!</h2>`);
 });
 
+server.use(function(req,res){
+res.status(404).json({message: 'Sorry that end point doesnt exist'})
+})
+
 function logger(req, res, next) {
   const method = req.method;
   const url = req.originalUrl;
